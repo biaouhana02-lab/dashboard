@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: auto;
+        background-color: #061b36;
+        color: white;
+    }
+
+    .header {
+        display: flex;
+       background-color: ;
+        margin-top: none;
+    }
+
+    .logo img {
+        width: 150px;
+        height: 150px;
+        padding-right: 15px;
+
+    }
+
+    .logo-text h1 {
+        display: flex;
+        flex-direction: column;
+        color: white;
+
+    }
+
+    .background-img {
+        width: 100%;
+        height: 600px;
+        display: block;
+    }
+
+    .hover-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-100%, 0%);
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        text-align: center;
+        background-color: rgba(206, 162, 95, 0.5);
+    }
+
+    .title {
+        text-align: center;
+        font-size: 30px;
+        margin-top: 50px;
+        width: 50rem;
+        border-radius: 2px;
+        box-shadow: #2730a8 0px 0px 10px 5px;
+       
+        
+    }
+    .t-container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+
+    .cards {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        background-color: rgb(5, 20, 37);
+        border-radius: 20px;
+        padding: 50px;
+        font-size: 20px;
+    }
+
+    .card {
+        display: block;
+        text-align: center;
+    }
+
+    .card i {
+        font-size: 30px;
+    }
+
+    .chart {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 50px;
+    }
+
+    .chart h3 {
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+
+    .pie-chart {
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: conic-gradient(rgb(221, 90, 221) 0% 20%, blue 20% 30%, rgb(57, 201, 211) 30% 100%);
+        border: solid black 2px;
+    }
+
+    .legend {
+        font-size: 16px;
+    }
+
+    .legend div {
+        display: block;
+        align-items: center;
+        margin-bottom: 20px;
+        margin-left: 20px;
+
+    }
+
+    .pie {
+        margin-top: 5px;
+        margin-right: none;
+        display: block;
+    }
+
+    .chart-1 {
+        background-attachment: fixed;
+        background-color: rgb(21, 40, 97);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        width: 430px;
+        height: 550px;
+    }
+    .chart-1 :hover{
+        box-shadow: rgba(232, 234, 236, 0.5);
+        background-color: #a3a1c7;
+    }
+
+    .bar-chart {
+        width: 350px;
+        margin: 30px auto;
+        background-color: rgb(21, 40, 97);
+        border-radius: 15px;
+        box-shadow: rgba(232, 234, 236, 0.5);
+        background-color: #a3a1c7;
+    }
+
+    .bar-color {
+        height: 100px;
+        border-radius: 5px;
+        color: white;
+        font-size: 14px;
+        line-height: 100px;
+        padding-left: 10px;
+
+    }
+
+    .chart-2 {
+        background-color: rgb(21, 40, 97);
+        border-radius: 15px;
+        padding: 30px;
+        width: 430px;
+        height: 550px;
+
+    }
+
+    .GEI1 {
+        background-color: #4CAF50;
+    }
+
+    /* vert */
+    .GEI2 {
+        background-color: #FF9800;
+    }
+
+    /* orange */
+    .GEI3 {
+        background-color: #2196F3;
+    }
+
+    .table-chart {
+        width: 90%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: rgb(5, 20, 37);
+        padding: 50px;
+
+    }
+
+    .table-chart h3 {
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgb(116, 116, 180);
+        margin-top: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 15px;
+    }
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ccc;
+    }
+
+    th {
+        background-color: #8eee10;
+        color: white;
+    }
+
+    tr:nth-child(even) {
+        background-color: #8eee10;
+    }
+
+    tr:nth-child(even):hover {
+        background-color: #89cf2e;
+    }
+
+    tr:hover {
+        background-color: #0b0842;
+    }
+
+    .table-1 {
+        align-items: center;
+        width: 500px;
+        padding: 50px;
+        background-color: rgb(5, 20, 37);
+        margin-top: 10px;
+        box-shadow: rgba(255, 245, 238, 2);
+    }
+
+    .table-1 h3 {
+
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgb(116, 116, 180);
+
+    }
+
+    .table2 h3 {
+
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgb(116, 116, 180);
+
+    }
+
+    /* Barre de progression */
+    .barre {
+        background-color: #ddd;
+        border-radius: 25px;
+        overflow: hidden;
+        height: 20px;
+
+    }
+
+    .table-bar-color {
+        height: 100%;
+        background-color: #FF00FF;
+        text-align: right;
+        padding-right: 5px;
+        line-height: 20px;
+        color: white;
+        font-weight: bold;
+    }
+    .AED{
+        background-color: neon cyan;
+    }
+
+    .table-container {
+        background-color: rgb(5, 20, 37);
+        margin-top: 100px;
+    }
+
+    .bar-container {
+        margin-top: 30px;
+    }
+
+    .stat-2 {
+        margin-top: 5rem;
+    }
+
+    .table2-style {
+        border-collapse: collapse;
+        width: auto;
+        box-shadow: 0 0 50px rgb(245, 242, 242);
+        margin: 100px auto;
+
+    }
+
+    .table2 {
+        width: 500px;
+        margin-top: 10px;
+        background-color: rgb(5, 20, 37);
+        padding: 50px;
+        box-shadow: rgba(255, 254, 254, 0.945);
+    }
+
+    .tables {
+        grid-template-columns: 500px 500px;
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        padding: 100px;
+    }
+
+    footer {
+        background-color: rgb(5, 20, 37);
+        text-align: center;
+        padding: 12px;
+        box-shadow: #2196F3 0px 0px 10px 5px;
+    }
+
+    .foot-begin {
+        margin-top: 12px;
+    }
+
+    .fab {
+        color: white;
+        size: 20px;
+    }
+
+    .fab:hover {
+        color: rgb(228, 228, 94);
+    }
+    
+</style>
+
+<body>
+
+    <header>
+        <div class="header">
+            <div class="logo">
+                <img src="télécharger.png" alt="error">
+            </div>
+            <div class="logo-text">
+                <h1>INSTI</h1>
+                <p style="color: white; font-size: large;">Institut National Supérieur des Technologies industrielles
+                </p>
+            </div>
+    </header>
+    <main>
+        <div>
+            <div>
+                <img src="programmation-de-robots-industrielles.avif" alt="error" class="background-img">
+                <div>
+                    <p class="hover-text">Bienvenue sur le Tableau de Bord de la Filière Génie Électrique et
+                        Informatique</p>
+                </div>
+            </div>
+            <div class="stat-1">
+                <div class="t-container" >
+                    <h3 class="title"> STATISTIQUES DES ETUDIANTS</h3>
+                </div>
+                <div class="cards">
+                    <div class="card"> <i style="color: tomato ; size: 5rem;" class="fa-solid fa-user"></i>
+                        <h3>Nombre d'incrits</h3>
+                        <p>300</p>
+                    </div>
+                    <div class="card"> <i style="color: rgb(245, 211, 60);" class="fa-solid fa-clipboard-user"></i>
+                        <h3>Nombre présents</h3>
+                        <p>280</p>
+                    </div>
+                    <div class="card"><i style="color: rgb(48, 190, 55);" class="fa-solid fa-percent"></i>
+                        <h3>Taux de réussite général</h3>
+                        <p>85%</p>
+                    </div>
+                    <div class="card"><i style="color: #4f5094;" class="fa-solid fa-graduation-cap"></i>
+                        <h3>Nombre de Lauréats par an</h3>
+                        <p> 298</p>
+                    </div>
+                </div>
+                <div class="chart">
+                    <div class="chart-1">
+                        <h3>Effectifs par niveau</h3>
+                        <div class="pie-chart"></div>
+                        <div class="legend">
+                            <div><span style="background-color: rgb(221, 90, 221);" class="pie">Première année</span>
+                            </div>
+                            <div><span class="pie" style="background-color: blue;">Deuxième année</span></div>
+                            <div><span style="background-color:  rgb(57, 201, 211);" class="pie">Troisième année </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="chart-2">
+                            <h3>Taux de réussite par promotion </h3>
+                            <div class="bar-chart"></div>
+
+                            <div class="bar">
+                                <div class="bar-color GEI1" style="width:99%">GEI/IT1</div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-color GEI2" style="width:80%">GEI/IT2</div>
+                            </div>
+                            <div class="bar">
+                                <div class="bar-color GEI3" style="width:95%">GEI/IT3</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="stat-2">
+                <div class="t-container" >
+                    <h3 class="title">TAUX DE REUSSITE PAR MATIERE</h3>
+                </div>
+                <div class="chart-3">
+
+                    <div class="table-chart">
+                        <h3>GEI/IT1</h3>
+                        <div class="bar-container">
+                            <tr>
+                                <td>AED</td>
+                                <td>
+                                    <div class="barre"  style="background-color: neon cyan" >
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>CDY</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>AVN</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>TMD</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>Francais</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>Anglais</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>SE</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>TCE</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>TIA</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>SDM</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr class="table-container">
+                                <td>EG</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>Sci-Gra</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>Chimie</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+
+                            <tr>
+                                <td>Programmation C++</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        <div class="bar-container">
+                            <tr>
+                                <td>Algo</td>
+                                <td>
+                                    <div class="barre">
+                                        <div class="table-bar-color" style="width: 75%;">75%</div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </div>
+                        </table>
+                    </div>
+                    <div class="tables">
+                        <div class="table-1">
+                            <h3 style="text-align: center;">GEI/IT3</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>UE</th>
+                                        <th>Pourcentage</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Telecom</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ASI</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ELA/td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ELD</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ELP</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>INI</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IFI</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>EGS</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>EPS</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MODELISATION</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PROGRAMMATION JAVA</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PHP ET JAVASCRIPT</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>API</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ANA</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GPLT</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Anglais technique</td>
+                                        <td>60%</td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="table2">
+                            <h3 style="text-align: center;">GEI/IT3</h3>
+                            <table>
+                                <thead>
+                                    <th>UE</th>
+                                    <th>Pourcentage</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>DP</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ED</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Entreprenariat</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TOEIC</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ORO</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GPN</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PIA</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>IIA</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>BDP</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SQSSI</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>SIBD</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DAM</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TVCC</td>
+                                        <td>60%</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ARI</td>
+                                        <td>60%</td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+    <footer id="foot">
+        <div id="footer-container">
+            <div>
+                <h3 class="foot-begin" style="color:white; font-size:18px; margin-bottom:15px;">Informations</h3>
+                <ul style="list-style:none; padding:0; margin:0; line-height:1.8;">
+                    <li style="color:#ddd;">Abomey, Hôtel de ville</li>
+                    <li style="color:#ddd;">BP 486 Abomey, Sogbo-Aliho</li>
+                    <li style="color:#ddd;">Tel: (229) 40 522 199 / 64 057 048</li>
+                    <li><a href="mailto:unstim@unstim.bj" style="color:#ddd;">unstim@unstim.bj</a></li>
+                    <li><a href="#" style="color:#2730a8; text-decoration:none;">Envoyer un message</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <hr style="border:0; border-top:1px solid #444; margin:30px 0;">
+
+        <div style="text-align:center; font-size:14px; color:#bbb;">
+            Science et technologie au service de l'homme <br>
+            © Unstim - 2025 - Tous droits réservés <br>
+            <a href="#" style="color:#ddd; text-decoration:none;">Politique de confidentialité</a>
+        </div>
+        <div class="separator"></div>
+        <div class="footer-socials">
+            <a href="https://facebook.com/https://facebook.com/groups/449999800216990/" target="_blank"><i
+                    class="fab fa-facebook"></i></a>
+            <a href="https://instagram.com/https://www.instagram.com/p/DFmuUuON7Jf/?utm_source=ig_web_copy_link"
+                target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://wa.me/22995736112" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+    </footer>
+
+</body>
+
+</html>
